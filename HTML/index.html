@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Website</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">    
+        <h1>Welcome to the Library</h1>
+    
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Insert into usuario</h2>
+                <form action="../PHP/funcoes.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <input type="hidden" name="functionName" value="createNewUser">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Insert into livros</h2>
+                <form action="../PHP/funcoes.php" method="post">
+                    <div class="form-group">
+                        <label for="titulo">Titulo:</label>
+                        <input type="text" class="form-control" name="titulo" id="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="autor">Autor ID:</label>
+                        <input type="text" class="form-control" name="autor" id="autor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano_pub">Ano Publicação:</label>
+                        <input type="text" class="form-control" name="ano_pub" id="ano_pub" required>
+                    </div>
+                    <input type="hidden" name="functionName" value="createNewBook">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Insert into autor</h2>
+                <form action="../PHP/funcoes.php" method="post">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" class="form-control" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nacionalidade:</label>
+                        <input type="text" class="form-control" name="nationality" id="nationality" required>
+                    </div>
+                    <input type="hidden" name="functionName" value="createNewAuthor">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+        <h2>Read from ...</h2>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Read from ...</h2>
+                <form action="../PHP/funcoes.php" method="post">
+                    <button type="submit" class="btn btn-primary" name="listUsers">Listar todos os usuários</button>
+                    <input type="hidden" name="functionName" value="listUsers">
+                </form>
+
+                <form action="../PHP/funcoes.php" method="post">
+                    <button type="submit" class="btn btn-primary" name="listBooks">Listar todos os livros</button>
+                    <input type="hidden" name="functionName" value="listBooks">
+                </form>
+            
+                <form action="../PHP/funcoes.php" method="post">
+                    <button type="submit" class="btn btn-primary" name="listAuthors">Listar todos os autores</button>
+                    <input type="hidden" name="functionName" value="listAuthors">
+                </form>
+            </div>
+        </div>
+    
+
+    
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Update ...</h2>
+                <form action="../PHP/funcoes.php" method="post">
+                    <h3 class="card-title">Usuário</h3>
+                    <label for="nameOld">Nome Antigo:</label>
+                    <input type="text" id="nameOld" name="nameOld" required><br><br>
+                    <label for="emailOld">Email Antigo:</label>
+                    <input type="email" id="emailOld" name="emailOld" required><br><br>
+                    <label for="passwordOld">Senha Antiga:</label>
+                    <input type="password" id="passwordOld" name="passwordOld" required><br><br>
+                    <label for="nameNew">Nome Novo:</label>
+                    <input type="text" id="nameNew" name="nameNew" required><br><br>
+                    <label for="emailNew">Email Novo:</label>
+                    <input type="email" id="emailNew" name="emailNew" required><br><br>
+                    <label for="passwordNew">Senha Nova:</label>
+                    <input type="password" id="passwordNew" name="passwordNew" required><br><br>
+                    <input type="hidden" name="functionName" value="updateUser">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+                <form action="../PHP/funcoes.php" method="post">
+                    <h3 class="card-title">Livro</h3>
+                    <label for="id">ID:</label>
+                    <input type="number" name="id" id="id"><br><br>
+                    <label for="tituloNew">Titulo Novo:</label>
+                    <input type="text" id="tituloNew" name="tituloNew" required><br><br>
+                    <label for="ano_pubNew">Ano Publicação:</label>
+                    <input type="number" id="ano_pubNew" name="ano_pubNew" required><br><br>
+                    <label for="autorNew">Autor (ID):</label>
+                    <input type="number" id="autorNew" name="autorNew" required><br><br>
+                    <input type="hidden" name="functionName" value="updateLivro">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+                <form action="../PHP/funcoes.php" method="post">
+                    <h3 class="card-title">Autor</h3>
+                    <label for="id">ID:</label>
+                    <input type="number" name="id" id="id"><br><br>
+                    <label for="nomeNew">Novo Nome</label>
+                    <input type="text" name="nomeNew" id="nomeNew"><br><br>
+                    <label for="nacionalidadeNew">Nova Nacionalidade</label>
+                    <input type="text" name="nacionalidadeNew" id="nacionalidadeNew"><br><br>
+                    <input type="hidden" name="functionName" value="updateAutor">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+            </div>
+        </div>
+    
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Delete</h2>
+                <form action="../PHP/funcoes.php" method="post">
+                    <label for="id">ID Usuário</label>
+                    <input type="number" name="id" id="id">
+                    <input type="submit" class="btn btn-primary" value="Deletar">
+                    <input type="hidden" name="functionName" value="deleteUsuario">
+                </form>
+                <form action="../PHP/funcoes.php" method="post">
+                    <label for="id">ID Livro</label>
+                    <input type="number" name="id" id="id">
+                    <input type="submit" class="btn btn-primary" value="Deletar">
+                    <input type="hidden" name="functionName" value="deleteLivro">
+                </form>
+                <form action="../PHP/funcoes.php" method="post">
+                    <label for="id">ID Autor</label>
+                    <input type="number" name="id" id="id">
+                    <input type="submit" class="btn btn-primary" value="Deletar">
+                    <input type="hidden" name="functionName" value="deleteAutor">
+                </form>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>
