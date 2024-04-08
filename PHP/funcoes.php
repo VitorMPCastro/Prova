@@ -198,9 +198,15 @@ function deleteLivro($id) {
 function deleteAutor($id) {
     global $conn;
     $sql = "DELETE FROM autor WHERE id = $id";
-    if ($conn->query($sql)) {
-        echo "Autor deletado.";
-    } else {
-        echo "Erro ao deletar autor. Verifique se os livros relacionados foram deletados.";
+    try {
+        $result = $conn->query($sql);
+        if (!$result) {
+            echo "Erro ao deletar autor. Verifique se os livros relacionados foram deletados.";
+            throw new Exception($error);
+        } else {
+            echo "Autor deletado.";
+        }
+    } catch (Exception $e){
+        echo "Erro: ". $e->getMessage();
     }
 }
